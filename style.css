@@ -20,7 +20,7 @@ body{
   overflow-x: hidden;
 }
 
-/* FLOATING BLUR */
+/* BACKGROUND */
 
 body::before,
 body::after{
@@ -83,8 +83,6 @@ header h1{
   font-weight: 700;
 
   color: #d978a1;
-
-  letter-spacing: 1px;
 }
 
 nav a{
@@ -149,9 +147,9 @@ nav a:hover::after{
 
   border-radius: 45px;
 
-  background: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.45);
 
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(20px);
 
   border: 1px solid rgba(255,255,255,0.5);
 
@@ -159,7 +157,9 @@ nav a:hover::after{
   0 15px 40px rgba(255,182,213,0.2),
   inset 0 0 20px rgba(255,255,255,0.3);
 
-  animation: fade 1.3s ease;
+  animation:
+  fade 1.3s ease,
+  float 4s ease-in-out infinite;
 }
 
 .card h2{
@@ -169,10 +169,11 @@ nav a:hover::after{
 
   margin-bottom: 25px;
 
-  background: linear-gradient(to right, #ff8fbc, #d978a1);
+  color: #ff8fbc;
 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  text-shadow:
+  0 0 10px rgba(255,143,188,0.4),
+  0 0 20px rgba(255,143,188,0.2);
 }
 
 .card p{
@@ -232,7 +233,7 @@ button:hover{
 
   border-radius: 40px;
 
-  background: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.45);
 
   backdrop-filter: blur(20px);
 
@@ -241,6 +242,12 @@ button:hover{
   text-align: center;
 
   box-shadow: 0 15px 35px rgba(255,182,213,0.18);
+
+  transition: 0.4s;
+}
+
+.about-card:hover{
+  transform: translateY(-8px);
 }
 
 .about-card h2{
@@ -283,6 +290,22 @@ footer{
   to{
     opacity: 1;
     transform: translateY(0);
+  }
+
+}
+
+@keyframes float{
+
+  0%{
+    transform: translateY(0px);
+  }
+
+  50%{
+    transform: translateY(-10px);
+  }
+
+  100%{
+    transform: translateY(0px);
   }
 
 }
