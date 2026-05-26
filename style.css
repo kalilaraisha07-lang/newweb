@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 *{
   margin: 0;
   padding: 0;
@@ -7,16 +9,58 @@
 
 body{
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom right, #dff4ff, #f6fbff);
-  color: #4a6b8a;
+
+  background:
+  radial-gradient(circle at top left, #ffd6e7 0%, transparent 30%),
+  radial-gradient(circle at bottom right, #ffc2dc 0%, transparent 25%),
+  linear-gradient(to bottom right, #fff0f6, #ffe5f0);
+
+  color: #b96b8d;
+
   overflow-x: hidden;
+}
+
+/* FLOATING BLUR */
+
+body::before,
+body::after{
+  content: '';
+
+  position: fixed;
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  z-index: -1;
+}
+
+body::before{
+  width: 350px;
+  height: 350px;
+
+  background: rgba(255,182,213,0.5);
+
+  top: -100px;
+  left: -100px;
+}
+
+body::after{
+  width: 300px;
+  height: 300px;
+
+  background: rgba(255,214,231,0.6);
+
+  bottom: -100px;
+  right: -100px;
 }
 
 /* HEADER */
 
 header{
   width: 100%;
-  padding: 22px 70px;
+
+  padding: 24px 70px;
 
   display: flex;
   justify-content: space-between;
@@ -25,42 +69,56 @@ header{
   position: fixed;
   top: 0;
 
-  background: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.35);
 
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.4);
 
   z-index: 1000;
 }
 
 header h1{
-  font-size: 32px;
-  color: #5b84b1;
+  font-size: 34px;
   font-weight: 700;
+
+  color: #d978a1;
+
+  letter-spacing: 1px;
 }
 
 nav a{
   text-decoration: none;
-  margin-left: 30px;
-  color: #5b84b1;
+
+  margin-left: 35px;
+
+  color: #d978a1;
+
   font-weight: 600;
-  transition: 0.3s;
+
   position: relative;
+
+  transition: 0.3s;
 }
 
 nav a:hover{
-  color: #89c2ff;
+  color: #ff8fbc;
 }
 
 nav a::after{
   content: '';
+
   position: absolute;
+
   left: 0;
-  bottom: -5px;
+  bottom: -6px;
 
   width: 0%;
   height: 2px;
 
-  background: #89c2ff;
+  border-radius: 20px;
+
+  background: #ff9fc5;
 
   transition: 0.3s;
 }
@@ -78,183 +136,138 @@ nav a:hover::after{
   justify-content: center;
   align-items: center;
 
-  padding: 120px 20px 80px;
+  padding: 130px 20px 80px;
 
   text-align: center;
 }
 
 .card{
-  background: rgba(255,255,255,0.8);
-
-  width: 800px;
+  width: 850px;
   max-width: 92%;
 
-  padding: 70px 50px;
+  padding: 80px 60px;
 
-  border-radius: 40px;
+  border-radius: 45px;
 
-  box-shadow: 0 15px 40px rgba(137,194,255,0.2);
+  background: rgba(255,255,255,0.4);
 
-  animation: fade 1.2s;
+  backdrop-filter: blur(25px);
+
+  border: 1px solid rgba(255,255,255,0.5);
+
+  box-shadow:
+  0 15px 40px rgba(255,182,213,0.2),
+  inset 0 0 20px rgba(255,255,255,0.3);
+
+  animation: fade 1.3s ease;
 }
 
 .card h2{
-  font-size: 65px;
-  color: #5b84b1;
-  margin-bottom: 20px;
+  font-size: 85px;
+
   line-height: 1.1;
+
+  margin-bottom: 25px;
+
+  background: linear-gradient(to right, #ff8fbc, #d978a1);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .card p{
-  font-size: 18px;
-  color: #7aa6cf;
-  line-height: 1.8;
-  margin-bottom: 35px;
+  font-size: 20px;
+
+  line-height: 1.9;
+
+  color: #c782a1;
+
+  margin-bottom: 40px;
 }
 
+/* BUTTON */
+
 button{
-  padding: 15px 38px;
+  padding: 16px 42px;
 
   border: none;
-  border-radius: 40px;
 
-  background: linear-gradient(to right, #89c2ff, #6ab2ff);
+  border-radius: 50px;
+
+  background: linear-gradient(to right, #ffb6d5, #ff8fbc);
 
   color: white;
+
   font-size: 16px;
   font-weight: 600;
 
   cursor: pointer;
 
-  transition: 0.3s;
+  transition: 0.35s;
 
-  box-shadow: 0 8px 20px rgba(106,178,255,0.3);
+  box-shadow: 0 10px 25px rgba(255,143,188,0.35);
 }
 
 button:hover{
-  transform: translateY(-4px) scale(1.03);
+  transform: translateY(-6px) scale(1.05);
+
+  box-shadow: 0 15px 30px rgba(255,143,188,0.45);
 }
 
 /* ABOUT */
 
-.about,
-.music{
+.about{
   padding: 120px 70px;
-  text-align: center;
-}
 
-.about h2,
-.music h2{
-  font-size: 50px;
-  color: #5b84b1;
-  margin-bottom: 25px;
-}
-
-.about p{
-  width: 750px;
-  max-width: 95%;
-  margin: auto;
-
-  line-height: 1.9;
-  font-size: 18px;
-
-  color: #6f9bc5;
-}
-
-/* MUSIC */
-
-.music-container{
   display: flex;
   justify-content: center;
-  align-items: stretch;
-
-  gap: 35px;
-
-  flex-wrap: wrap;
-
-  margin-top: 60px;
+  align-items: center;
 }
 
-.music-card{
-  width: 320px;
+.about-card{
+  width: 850px;
+  max-width: 95%;
 
-  background: rgba(255,255,255,0.9);
+  padding: 60px;
 
-  border-radius: 30px;
+  border-radius: 40px;
 
-  padding: 40px 30px;
+  background: rgba(255,255,255,0.4);
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  backdrop-filter: blur(20px);
 
-  transition: 0.35s;
+  border: 1px solid rgba(255,255,255,0.5);
 
-  position: relative;
-  overflow: hidden;
+  text-align: center;
+
+  box-shadow: 0 15px 35px rgba(255,182,213,0.18);
 }
 
-.music-card::before{
-  content: '';
+.about-card h2{
+  font-size: 55px;
 
-  position: absolute;
+  margin-bottom: 25px;
 
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 8px;
-
-  background: linear-gradient(to right, #89c2ff, #b6e0ff);
+  color: #d978a1;
 }
 
-.music-card:hover{
-  transform: translateY(-10px);
+.about-card p{
+  font-size: 18px;
 
-  box-shadow: 0 15px 35px rgba(137,194,255,0.2);
-}
+  line-height: 2;
 
-.music-card h3{
-  color: #5b84b1;
-  margin-bottom: 12px;
-  font-size: 28px;
-}
-
-.music-card p{
-  color: #7aa6cf;
-  margin-bottom: 20px;
-  font-size: 15px;
-}
-
-.music-card ul{
-  list-style: none;
-}
-
-.music-card li{
-  background: #eef7ff;
-
-  margin: 12px 0;
-
-  padding: 12px;
-
-  border-radius: 15px;
-
-  color: #5b84b1;
-  font-weight: 500;
-
-  transition: 0.3s;
-}
-
-.music-card li:hover{
-  transform: scale(1.03);
-  background: #dff1ff;
+  color: #c782a1;
 }
 
 /* FOOTER */
 
 footer{
   text-align: center;
+
   padding: 35px;
 
-  color: #7aa6cf;
+  color: #d18ba8;
+
   font-size: 15px;
 }
 
@@ -264,7 +277,7 @@ footer{
 
   from{
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
 
   to{
@@ -280,35 +293,40 @@ footer{
 
   header{
     padding: 20px;
+
     flex-direction: column;
+
     gap: 15px;
   }
 
   nav a{
     margin: 0 10px;
+
     font-size: 14px;
   }
 
   .card{
-    padding: 50px 25px;
+    padding: 55px 30px;
   }
 
   .card h2{
-    font-size: 45px;
+    font-size: 52px;
   }
 
-  .about,
-  .music{
-    padding: 100px 20px;
+  .card p{
+    font-size: 16px;
   }
 
-  .about h2,
-  .music h2{
-    font-size: 38px;
+  .about{
+    padding: 90px 20px;
   }
 
-  .music-card{
-    width: 100%;
+  .about-card{
+    padding: 40px 25px;
+  }
+
+  .about-card h2{
+    font-size: 40px;
   }
 
 }
