@@ -6,16 +6,17 @@
 }
 
 body{
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom right, #dff4ff, #f5fbff);
-  color: #4b6b88;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #dff4ff, #f6fbff);
+  color: #4a6b8a;
+  overflow-x: hidden;
 }
 
 /* HEADER */
 
 header{
   width: 100%;
-  padding: 25px 70px;
+  padding: 22px 70px;
 
   display: flex;
   justify-content: space-between;
@@ -24,28 +25,48 @@ header{
   position: fixed;
   top: 0;
 
-  background: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.55);
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
 
   z-index: 1000;
 }
 
 header h1{
-  font-size: 28px;
+  font-size: 32px;
   color: #5b84b1;
+  font-weight: 700;
 }
 
 nav a{
   text-decoration: none;
-  margin-left: 25px;
+  margin-left: 30px;
   color: #5b84b1;
-  font-weight: bold;
+  font-weight: 600;
   transition: 0.3s;
+  position: relative;
 }
 
 nav a:hover{
   color: #89c2ff;
+}
+
+nav a::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+
+  width: 0%;
+  height: 2px;
+
+  background: #89c2ff;
+
+  transition: 0.3s;
+}
+
+nav a:hover::after{
+  width: 100%;
 }
 
 /* HERO */
@@ -57,62 +78,61 @@ nav a:hover{
   justify-content: center;
   align-items: center;
 
-  padding: 100px 20px;
+  padding: 120px 20px 80px;
+
+  text-align: center;
 }
 
 .card{
-  background: white;
+  background: rgba(255,255,255,0.8);
 
-  width: 750px;
-  max-width: 90%;
+  width: 800px;
+  max-width: 92%;
 
-  padding: 60px;
+  padding: 70px 50px;
 
-  border-radius: 35px;
+  border-radius: 40px;
 
-  text-align: center;
+  box-shadow: 0 15px 40px rgba(137,194,255,0.2);
 
-  box-shadow: 0 10px 30px rgba(137,194,255,0.2);
-
-  animation: fade 1.5s;
+  animation: fade 1.2s;
 }
 
 .card h2{
-  font-size: 60px;
-  margin-bottom: 20px;
+  font-size: 65px;
   color: #5b84b1;
+  margin-bottom: 20px;
+  line-height: 1.1;
 }
 
 .card p{
   font-size: 18px;
-  line-height: 1.8;
-
   color: #7aa6cf;
-
+  line-height: 1.8;
   margin-bottom: 35px;
 }
 
 button{
-  padding: 15px 35px;
+  padding: 15px 38px;
 
   border: none;
+  border-radius: 40px;
 
-  border-radius: 30px;
-
-  background: #89c2ff;
+  background: linear-gradient(to right, #89c2ff, #6ab2ff);
 
   color: white;
-
   font-size: 16px;
+  font-weight: 600;
 
   cursor: pointer;
 
   transition: 0.3s;
+
+  box-shadow: 0 8px 20px rgba(106,178,255,0.3);
 }
 
 button:hover{
-  transform: scale(1.05);
-  background: #6ab2ff;
+  transform: translateY(-4px) scale(1.03);
 }
 
 /* ABOUT */
@@ -120,68 +140,88 @@ button:hover{
 .about,
 .music{
   padding: 120px 70px;
-
   text-align: center;
 }
 
 .about h2,
 .music h2{
-  font-size: 45px;
-
-  margin-bottom: 25px;
-
+  font-size: 50px;
   color: #5b84b1;
+  margin-bottom: 25px;
 }
 
 .about p{
-  width: 700px;
-  max-width: 90%;
-
+  width: 750px;
+  max-width: 95%;
   margin: auto;
 
-  line-height: 1.8;
-
-  color: #7aa6cf;
-
+  line-height: 1.9;
   font-size: 18px;
+
+  color: #6f9bc5;
 }
 
 /* MUSIC */
 
 .music-container{
   display: flex;
-
   justify-content: center;
+  align-items: stretch;
 
-  gap: 25px;
+  gap: 35px;
 
   flex-wrap: wrap;
 
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 .music-card{
-  width: 300px;
+  width: 320px;
 
-  background: white;
+  background: rgba(255,255,255,0.9);
+
+  border-radius: 30px;
 
   padding: 40px 30px;
 
-  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transition: 0.35s;
 
-  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.music-card::before{
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 8px;
+
+  background: linear-gradient(to right, #89c2ff, #b6e0ff);
 }
 
 .music-card:hover{
   transform: translateY(-10px);
+
+  box-shadow: 0 15px 35px rgba(137,194,255,0.2);
 }
 
 .music-card h3{
-  margin-bottom: 15px;
-
   color: #5b84b1;
+  margin-bottom: 12px;
+  font-size: 28px;
+}
+
+.music-card p{
+  color: #7aa6cf;
+  margin-bottom: 20px;
+  font-size: 15px;
 }
 
 .music-card ul{
@@ -189,8 +229,33 @@ button:hover{
 }
 
 .music-card li{
-  margin: 10px 0;
+  background: #eef7ff;
+
+  margin: 12px 0;
+
+  padding: 12px;
+
+  border-radius: 15px;
+
+  color: #5b84b1;
+  font-weight: 500;
+
+  transition: 0.3s;
+}
+
+.music-card li:hover{
+  transform: scale(1.03);
+  background: #dff1ff;
+}
+
+/* FOOTER */
+
+footer{
+  text-align: center;
+  padding: 35px;
+
   color: #7aa6cf;
+  font-size: 15px;
 }
 
 /* ANIMATION */
@@ -221,15 +286,29 @@ button:hover{
 
   nav a{
     margin: 0 10px;
+    font-size: 14px;
+  }
+
+  .card{
+    padding: 50px 25px;
   }
 
   .card h2{
-    font-size: 40px;
+    font-size: 45px;
   }
 
   .about,
   .music{
     padding: 100px 20px;
+  }
+
+  .about h2,
+  .music h2{
+    font-size: 38px;
+  }
+
+  .music-card{
+    width: 100%;
   }
 
 }
